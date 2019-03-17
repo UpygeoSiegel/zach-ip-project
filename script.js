@@ -1,19 +1,18 @@
 let ipAddress
-let userLocation
+let userLocation = "UNKNOWN"
 
 $.getJSON('https://api.ipify.org?format=json', function(data){
     console.log(data.ip);
     ipAddress = data.ip
-    getAddress()
 });
 
-async function getAddress(){
-  let key = "e40e24fe266d933bed14e008ec18a072"
-  let address = await fetch("http://api.ipstack.com/"+ipAddress+"?access_key="+key)
-  let userAddress = await address.json()
-  userLocation = userAddress
-  console.log(userAddress)
-}
+// async function getAddress(){
+//   let key = "e40e24fe266d933bed14e008ec18a072"
+//   let address = await fetch("http://api.ipstack.com/"+ipAddress+"?access_key="+key)
+//   let userAddress = await address.json()
+//   userLocation = userAddress
+//   console.log(userAddress)
+// }
 
 let button = document.querySelector("#signIn")
 button.addEventListener("click",()=>{
